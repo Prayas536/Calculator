@@ -6,14 +6,20 @@ class button1 extends StatelessWidget {
     super.key,
     required this.label,
     this.textcolor = const Color.fromARGB(255, 255, 255, 255),
+    this.ontap,
   });
   final String label;
   final Color textcolor;
+  final void Function(String)? ontap ;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+
+        if(ontap !=null){
+          ontap!(label);
+        }
         // TODO:ontap
       },
       child: Material(
